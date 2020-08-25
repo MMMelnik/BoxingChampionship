@@ -1,0 +1,56 @@
+﻿@model BoxingChampionship.Models.Battle
+
+@{
+    ViewBag.Title = "Delete battle";
+}
+
+<h2>Delete battle </h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Battle</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Loser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefereePoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefereePoints)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

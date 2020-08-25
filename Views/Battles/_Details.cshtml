@@ -1,0 +1,45 @@
+﻿@model BoxingChampionship.Models.Battle
+
+<div>
+    <div class="modal-header">  
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Battle Details</h4>
+        <a href="@Url.Action("Edit", new { id = Model.Id })">
+            <i class="glyphicon glyphicon-pencil"></i>
+            <span>Edit</span>
+        </a>
+    </div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Winner)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Winner)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Loser)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Loser)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RefereePoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RefereePoints)
+        </dd>
+    </dl>
+</div>

@@ -1,0 +1,102 @@
+﻿@model IEnumerable<BoxingChampionship.Models.Battle>
+
+@{
+    ViewBag.Title = "Battles";
+}
+
+<h2>Battles</h2>
+
+<p>
+    @Html.ActionLink("Add new battle", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Winner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Loser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RefereePoints)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Winner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Loser)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RefereePoints)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                <a href="javascript:void(0);" class="anchorDetail" data-id="@item.Id">Details</a> |
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+<div id='myModal' class='modal'>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id='myModalContent'></div>
+        </div>
+    </div>
+
+</div>
+@section scripts  
+{  
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>  
+    <script src="~/Scripts/bootstrap.js"></script>  
+    <script src="~/Scripts/bootstrap.min.js"></script>  
+    <script>  
+        var TeamDetailPostBackURL = '/Battles/Details';  
+        $(function () {  
+            $(".anchorDetail").click(function () {  
+                debugger;  
+                var $buttonClicked = $(this);  
+                var id = $buttonClicked.attr('data-id');  
+                var options = { "backdrop": "static", keyboard: true };  
+                $.ajax({  
+                    type: "GET",  
+                    url: TeamDetailPostBackURL,  
+                    contentType: "application/json; charset=utf-8",  
+                    data: { "Id": id },  
+                    datatype: "json",  
+                    success: function (data) {  
+                        debugger;  
+                        $('#myModalContent').html(data);  
+                        $('#myModal').modal(options);  
+                        $('#myModal').modal('show');                    
+  
+                    },  
+                    error: function () {  
+                        alert("Dynamic content load failed.");  
+                    }  
+                });  
+            });  
+            //$("#closebtn").on('click',function(){  
+            //    $('#myModal').modal('hide');    
+  
+            $("#closbtn").click(function () {  
+                $('#myModal').modal('hide');  
+            });        
+        });  
+     
+    </script>  
+  
+    }  
