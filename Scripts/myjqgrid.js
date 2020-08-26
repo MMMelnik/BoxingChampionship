@@ -6,7 +6,7 @@
             datatype: 'json',
             mtype: 'Get',
             //table header name   
-            colNames: ['Id', 'AmountOfRounds', 'Date', 'Winner', 'Loser', 'RefereePoints'],
+            colNames: ['Id', 'Amount Of Rounds', 'Date', 'Winner', 'Loser', 'Referee Points'],
             //colModel takes the data from controller and binds to grid   
             colModel: [
                 {
@@ -20,7 +20,8 @@
                     name: 'AmountOfRounds',
                     index: 'AmountOfRounds',
                     width: 120,
-                    editable: true
+                    editable: true,
+                    search: false
                 }, {
                     key: false,
                     name: 'Date',
@@ -30,25 +31,29 @@
                     formatoptions: {
                         newformat: 'd/m/Y'
                     },
-                    width: 80
+                    width: 80,
+                    search: false
                 }, {
                     key: false,
                     name: 'Winner',
                     index: 'Winner',
                     editable: true,
-                    width: 200
+                    width: 200,
+                    searchoptions: { sopt: ['eq'] }
                 }, {
                     key: false,
                     name: 'Loser',
                     index: 'Loser',
                     editable: true,
-                    width: 200
+                    width: 200,
+                    searchoptions: { sopt: ['eq'] }
                 }, {
                     key: false,
                     name: 'RefereePoints',
                     index: 'RefereePoints',
                     editable: true,
-                    width: 110
+                    width: 110,
+                    search: false
                 }
             ],
             pager: jQuery('#pager'),
@@ -56,6 +61,7 @@
             rowList: [10, 20, 30, 40],
             height: '100%',
             viewrecords: true,
+            loadonce: true,
             caption: 'Battles',
             emptyrecords: 'No records to display',
             jsonReader:
@@ -67,7 +73,6 @@
                 repeatitems: false,
                 Id: "0"
             },
-            //autowidth: true,
             multiselect: false
             //pager-you have to choose here what icons should appear at the bottom  
             //like edit,create,delete icons  
@@ -76,8 +81,10 @@
                 edit: true,
                 add: true,
                 del: true,
-                search: false,
-                refresh: true
+                search: true,
+                searchtext: "Search",
+                refresh: true,
+                refreshtext: "Refresh"
             }, {
             // edit options  
             zIndex: 100,
