@@ -8,19 +8,5 @@ namespace BoxingChampionship.Controllers
         {
             return View();
         }
-
-        public ActionResult PageOfChampionship()
-        {
-            ViewBag.Message = "Page of Championship";
-
-            return View();
-        }
-
-        public ActionResult Battle()
-        {
-            ViewBag.Message = "Page of battle";
-
-            return View();
-        }
     }
 }

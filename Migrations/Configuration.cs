@@ -4,9 +4,7 @@ using BoxingChampionship.Models;
 namespace BoxingChampionship.Migrations
 {
     using System;
-    using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<BoxingChampionship.Models.ChampionshipContext>
     {
@@ -21,27 +19,27 @@ namespace BoxingChampionship.Migrations
             {
                 new Battle
                 {
-                    Date = DateTime.Today.AddDays(-1), Winner = "Shakhobidin Zoirov",
+                    Date = DateTime.Today.AddDays(-1), AmountOfRounds = 3, Winner = "Shakhobidin Zoirov",
                     Loser = "Amit Panghal", RefereePoints = 10
                 },
                 new Battle
                 {
-                    Date = DateTime.Today.AddDays(-3), Winner = "Mirazizbek Mirzakhalilov",
+                    Date = DateTime.Today.AddDays(-3), AmountOfRounds = 3, Winner = "Mirazizbek Mirzakhalilov",
                     Loser = "Lázaro Álvarez", RefereePoints = 5
                 },
                 new Battle
                 {
-                    Date = DateTime.Today.AddDays(-5), Winner = "Andy Cruz",
+                    Date = DateTime.Today.AddDays(-5), AmountOfRounds = 3, Winner = "Andy Cruz",
                     Loser = "Keyshawn Davis", RefereePoints = 6
                 },
                 new Battle
                 {
-                    Date = DateTime.Today.AddDays(-30), Winner = "Andrey Zamkovoy",
+                    Date = DateTime.Today.AddDays(-30), AmountOfRounds = 3, Winner = "Andrey Zamkovoy",
                     Loser = "Pat McCormack", RefereePoints = 7
                 },
                 new Battle
                 {
-                    Date = DateTime.Today.AddDays(-7), Winner = "Gleb Bakshi",
+                    Date = DateTime.Today.AddDays(-7), AmountOfRounds = 3, Winner = "Gleb Bakshi",
                     Loser = "Eumir Marcial", RefereePoints = 9
                 }
             };

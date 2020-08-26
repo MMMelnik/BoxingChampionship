@@ -9,12 +9,12 @@ namespace BoxingChampionship.Controllers
 {
     public class BattlesController : Controller
     {
-        private ChampionshipContext db = new ChampionshipContext();
+        private readonly ChampionshipContext _db = new ChampionshipContext();
 
         // GET: Battles
         public ActionResult Index()
         {
-            return View(db.Battles.ToList());
+            return View(_db.Battles.ToList());
         }
 
         // GET: Battles/Details/5
@@ -24,7 +24,7 @@ namespace BoxingChampionship.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Battle battle = db.Battles.Find(id);
+            Battle battle = _db.Battles.Find(id);
             if (battle == null)
             {
                 return HttpNotFound();
@@ -48,8 +48,8 @@ namespace BoxingChampionship.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Battles.Add(battle);
-                db.SaveChanges();
+                _db.Battles.Add(battle);
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
@@ -63,7 +63,7 @@ namespace BoxingChampionship.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Battle battle = db.Battles.Find(id);
+            Battle battle = _db.Battles.Find(id);
             if (battle == null)
             {
                 return HttpNotFound();
@@ -80,8 +80,8 @@ namespace BoxingChampionship.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(battle).State = EntityState.Modified;
-                db.SaveChanges();
+                _db.Entry(battle).State = EntityState.Modified;
+                _db.SaveChanges();
                 return RedirectToAction("Index");
             }
             return View(battle);
@@ -94,7 +94,7 @@ namespace BoxingChampionship.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Battle battle = db.Battles.Find(id);
+            Battle battle = _db.Battles.Find(id);
             if (battle == null)
             {
                 return HttpNotFound();
@@ -107,9 +107,9 @@ namespace BoxingChampionship.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Battle battle = db.Battles.Find(id);
-            db.Battles.Remove(battle ?? throw new InvalidOperationException());
-            db.SaveChanges();
+            Battle battle = _db.Battles.Find(id);
+            _db.Battles.Remove(battle ?? throw new InvalidOperationException());
+            _db.SaveChanges();
             return RedirectToAction("Index");
         }
 
@@ -117,7 +117,7 @@ namespace BoxingChampionship.Controllers
         {
             if (disposing)
             {
-                db.Dispose();
+                _db.Dispose();
             }
             base.Dispose(disposing);
         }
