@@ -19,7 +19,7 @@ $.extend($.jgrid,{
 		caption: "Search...",
 		Find: "Find",
 		Reset: "Reset",
-		odata: [{ oper: 'eq', text: "'s name is " }, 'not equal', 'less', 'less or equal','greater','greater or equal', 'begins with','does not begin with','is in','is not in','ends with','does not end with','contains','does not contain'],
+		odata: ['eq', 'not equal', 'less', 'less or equal','greater','greater or equal', 'begins with','does not begin with','is in','is not in','ends with','does not end with','contains','does not contain'],
 		groupOps: [{ op: "AND", text: "all" }, { op: "OR", text: "any" }],
         matchText: " match",
 		rulesText: " rules"
@@ -47,8 +47,7 @@ $.extend($.jgrid,{
 			novalue : " return value is required!",
 			customarray : "Custom function should return array!",
 			customfcheck : "Custom function should be present in case of custom checking!"
-			
-		}
+        }
 	},
 	view : {
 		caption: "View Record",

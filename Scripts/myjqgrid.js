@@ -5,9 +5,7 @@
             url: '/PageOfChampionship/GetValues',
             datatype: 'json',
             mtype: 'Get',
-            //table header name   
             colNames: ['Id', 'Amount Of Rounds', 'Date', 'Winner', 'Loser', 'Referee Points'],
-            //colModel takes the data from controller and binds to grid   
             colModel: [
                 {
                     key: true,
@@ -57,13 +55,22 @@
                 }
             ],
             pager: jQuery('#pager'),
-            rowNum: 10,
-            rowList: [10, 20, 30, 40],
+            rowList: [10, 20, 30, 40, 100000000],
+            loadComplete: function () {
+                $("option[value=100000000]").text('All');
+            },
             height: '100%',
             viewrecords: true,
             loadonce: true,
+            stringResult: true,
             caption: 'Battles',
             emptyrecords: 'No records to display',
+            //Shows detailed view as pop-up window
+            ondblClickRow: function (id) {
+                $(this).jqGrid('viewGridRow', id, {
+                    caption: "Battle details", width: 400
+                });
+            },
             jsonReader:
             {
                 root: "rows",
@@ -74,9 +81,7 @@
                 Id: "0"
             },
             multiselect: false
-            //pager-you have to choose here what icons should appear at the bottom  
-            //like edit,create,delete icons  
-        }).navGrid('#pager',
+    }).navGrid('#pager',
             {
                 edit: true,
                 add: true,
@@ -115,7 +120,7 @@
             closeOnEscape: true,
             closeAfterDelete: true,
             recreateForm: true,
-            msg: "Are you sure you want to delete this task?",
+            msg: "Are you sure you want to delete this battle?",
             afterComplete: function (response) {
                 if (response.responseText) {
                     alert(response.responseText);

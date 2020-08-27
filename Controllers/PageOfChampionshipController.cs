@@ -88,7 +88,7 @@ namespace BoxingChampionship.Controllers
                 }
                 else
                 {
-                    msg = "Validation data not successful";
+                    msg = "Validation data is not successful";
                 }
             }
             catch (Exception ex)
