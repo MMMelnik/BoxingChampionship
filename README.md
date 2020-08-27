@@ -1,10 +1,10 @@
 # BoxingChampionship
 Test task
-##Using:
+## Using:
 * ASP.NET MVC 5
 * Entity Framework 
 * JqGrid
-##Pages' functuanality description:
+## Pages' functuanality description:
 * Home/Boxing Championship
 represents a rank of fighters by "Rank" "Name" "Amount of battles"
 Columns can be sorted by click on the column header
